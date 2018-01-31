@@ -8,13 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ trans('home.laravel') }}</title>
+    <title>{{ __('home.company') }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('/assets/css/scrolling-nav.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/css/style.css') }}" rel="stylesheet">
 
 
 </head>
@@ -24,20 +25,21 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Laravel</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">{{ __('home.company') }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    <a class="nav-link js-scroll-trigger" href="#about">{{ __('home.menu.about') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                    <a class="nav-link js-scroll-trigger" href="#services">{{ __('home.menu.services') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                    <a class="nav-link js-scroll-trigger" href="#contact">{{ __('home.menu.contact') }}</a>
                 </li>
             </ul>
         </div>
@@ -47,7 +49,7 @@
 <header class="bg-primary text-white">
     <div class="container text-center">
         <h1>{{ __('home.welcome') }}</h1>
-        <p class="lead">A landing page template freshly redesigned for Bootstrap 4</p>
+        <p class="lead">{{ __('home.slogan') }}</p>
     </div>
 </header>
 
@@ -55,13 +57,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>About this page</h2>
-                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                <h2>{{ __('home.about.title') }}</h2>
+                <p class="lead">{{ __('home.about.intro') }}</p>
                 <ul>
-                    <li>Clickable nav links that smooth scroll to page sections</li>
-                    <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                    <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                    <li>Minimal custom CSS so you are free to explore your own unique design options</li>
+                    <li>We do this</li>
+                    <li>3h simple wordpress sites we charge u a few K</li>
+                    <li>We do that</li>
+                    <li>Laravel solutions with premade libraries - pretttty neat</li>
                 </ul>
             </div>
         </div>
@@ -72,8 +74,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Services we offer</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+                <h2>{{ __('home.services.title') }}</h2>
+                <p class="lead">{{ __('home.services.intro') }}</p>
             </div>
         </div>
     </div>
@@ -83,8 +85,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Contact us</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+                <h2>{{ __('home.contact.title') }}</h2>
+                <p class="lead">{{ __('home.contact.intro') }}</p>
+                <form id="inquiry-form" method="post" action="/submit">
+                    <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
+                    <input type="text" name="name">
+
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
     </div>
@@ -93,7 +101,7 @@
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; {{ __('home.company') }} 2018</p>
     </div>
     <!-- /.container -->
 </footer>
@@ -108,6 +116,7 @@
 
 <!-- Custom JavaScript for this theme -->
 <script src="{{ asset('/assets/js/scrolling-nav.js')}}"></script>
+<script src="{{ asset('/assets/js/script.js')}}"></script>
 
 </body>
 

@@ -20,3 +20,6 @@ Route::get('/{locale}', function ($locale) {
     App::setLocale($locale);
     return view( 'home' );
 });
+
+//HINNAPÄRING
+Route::post('/submit', 'InquiryController@submitForm');
